@@ -1,8 +1,9 @@
-site_name: My site
+site_name: Github pages for teaching
 nav:
     - Home: index.md
     - Precourse preparations: precourse.md
     - Course schedule: course_schedule.md
+    - Exercises: exercises.md
 
 theme:
   name: material
@@ -28,6 +29,7 @@ markdown_extensions:
   - pymdownx.superfences
   - attr_list
   - pymdownx.tabbed
+  - pymdownx.keys
   - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji

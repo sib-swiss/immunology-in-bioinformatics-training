@@ -4,7 +4,6 @@
 
 * This website
 * Zoom meeting (through mail)
-* Google doc (through mail)
 * [Slack channel](https://slack.com)
 
 ## Learning outcomes
@@ -13,9 +12,9 @@
 
 After this course, you will be able to:
 
-### Learning outcomes explained
-
-To reach the general learning outcomes above, we have set a number of smaller learning outcomes. Each chapter starts with these smaller learning outcomes. Use these at the start of a chapter to get an idea what you will learn. Use them also at the end of a chapter to evaluate whether you have learned what you were expected to learn.
+* Initiate a course website from a repository by using github pages and `mkdocs`
+* Build the infrastructure of a static website by using a `yaml` file
+* Generate content for a course website including code chunks and admonitions by writing markdown
 
 ## Learning experiences
 
