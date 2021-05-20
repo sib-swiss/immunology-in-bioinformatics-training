@@ -289,4 +289,14 @@ Lastly, you can incorporate `html`. This can particularly be convenient if you w
 
 ## BYO workshop
 
-If you have brought your own course material, now you can start with generating a page containing your own course material
+If you have brought your own course material, now you can start with generating a page containing your own course material.
+
+## Host the website at github.io
+
+You can host your website by running the command:
+
+```sh
+mkdocs gh-deploy
+```
+
+It will be available within a few minutes at `[NAMESPACE].github.io/[REPONAME]`
