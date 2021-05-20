@@ -1,7 +1,7 @@
 
 ## Forking and cloning the template
 
-Go to [https://github.com/GeertvanGeest/course_website_template](https://github.com/GeertvanGeest/course_website_template), and click on **Use this template**:
+Go to [https://github.com/sib-swiss/course_website_template](https://github.com/sib-swiss/course_website_template), and click on **Use this template**:
 
 <figure>
   <img src="../assets/images/use_this_as_template.png" width="500"/>
@@ -45,19 +45,15 @@ Open the file `index.md` in your favourite text editor. Add some text to the pag
 The total file structure of the template looks like this:
 
 ```
+.
 ├── LICENCE
 ├── README.md
 ├── docs
 │   ├── assets
 │   │   └── images
-│   │       ├── SIB_LogoQ_GBv.svg
 │   │       ├── SIB_logo.svg
-│   │       ├── choose_owner.png
-│   │       ├── clone_repo.png
-│   │       ├── dna-svgrepo-com.svg
 │   │       ├── reactions_zoom.png
 │   │       ├── reply_in_thread.png
-│   │       ├── use_this_as_template.png
 │   │       └── zoom_icons.png
 │   ├── course_schedule.md
 │   ├── exercises.md
@@ -66,6 +62,8 @@ The total file structure of the template looks like this:
 │   └── stylesheets
 │       └── extra.css
 └── mkdocs.yml
+
+4 directories, 12 files
 ```
 
 The main directory contains:
@@ -80,3 +78,215 @@ The main directory contains:
     * Website structure
     * Meta information
     * Plugins
+
+
+## Setting up the website infrastructure
+
+Open `mkdocs.yml` in your favourite text editor. Have a look at the first part:
+
+```yaml
+site_name: Course template
+
+nav:
+    - Home: index.md
+    - Precourse preparations: precourse.md
+    - Course schedule: course_schedule.md
+    - Exercises: exercises.md
+```
+
+The first line (`site_name`) let's you change website name. Change it to something that makes sense to you, and check whether it has changed in the locally hosted site.
+
+With the part named `nav`, you can change the website structure and with that navigation. The file `index.md` should always be there, this is the 'homepage'.
+
+Now we will generate a new page that is a subchapter of *Exercises*. In order to do so, follow the following steps:
+
+- Generate a directory within the directory `docs` called `exercises`
+- Within the `exercises` directory generate a new file called `exercises_day1.md`
+- Adjust the `nav` part of `mkdocs.yml` like so:
+
+```yaml
+nav:
+    - Home: index.md
+    - Precourse preparations: precourse.md
+    - Course schedule: course_schedule.md
+    - Exercises:
+      - Day 1: exercises/exercises_day1.md
+```
+
+Now a new collapsible menu will appear, containing your new page.
+
+## Referring to the right repo
+
+In `mkdocs.yml` have a look at the repository part:
+
+```yaml
+# Repository
+repo_name: sib-swiss/course_website_template
+repo_url: https://github.com/sib-swiss/course_website_template
+```
+
+The course website is now hosted at your own repository. Therefore, change the repository name and url according to your own.
+
+## Markdown syntax
+
+You can use general github markdown syntax in order to generate a formatted html page. Have a look [here](https://guides.github.com/features/mastering-markdown/).
+
+Now, convert the rendered text below into markdown. Add your markdown text to the file `exercises_day1.md` and see whether you get the expected result while you type.
+
+=== "Rendered markdown"
+    ### My markdown exercise
+
+    With plain markdown you can highlight in two ways:
+
+    1. *Italic*
+    2. **Bold**
+
+    You can add a link to your favourite [website](https://www.sib.swiss/). Or add an image from that website (find it at `https://www.sib.swiss/images/banners/banner_research_infrastructure.jpg`):
+
+    ![](https://www.sib.swiss/images/banners/banner_research_infrastructure.jpg)
+
+    You can also add a local image (this one is stored in `../assets/images/zoom_icons.png`):
+
+    ![](../assets/images/zoom_icons.png)
+
+    Sharing a code is easy, inline you refer to code like this: `pip install mkdocs`. But often it's more convenient in a code block, e.g. with shell highlighting:
+
+    ```sh
+    FILE=my_genes.csv
+    cat $FILE | cut -f 1,2 -d ','
+    ```
+
+    Or with R highlighting for example:
+
+    ```r
+    df <- read.csv('my_genes.csv')
+    ```
+
+=== "Answer"
+    ````md
+    ### My markdown exercise
+
+    With plain markdown you can highlight in two ways:
+
+    1. *Italic*
+    2. **Bold**
+
+    You can add a link to your favourite [website](https://www.sib.swiss/).
+    Or add an image from that website (find it at `https://www.sib.swiss/images/banners/banner_research_infrastructure.jpg`):
+
+    ![](https://www.sib.swiss/images/banners/banner_research_infrastructure.jpg)
+
+    You can also add a local image (this one is stored in `../assets/images/zoom_icons.png`):
+
+    ![](../assets/images/zoom_icons.png)
+
+    Sharing a code is easy, inline you refer to code like this: `pip install mkdocs`.
+    But often it's more convenient in a code block, e.g. with shell highlighting:
+
+    ```sh
+    FILE=my_genes.csv
+    cat $FILE | cut -f 1,2 -d ','
+    ```
+
+    Or with R highlighting for example:
+
+    ```r
+    df <- read.csv('my_genes.csv')
+    ```
+    ````
+
+## Additional features of Mkdocs material
+
+Some additional features are very convenient for generating a website for teaching. For example [admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/):
+
+=== "code"
+    ```md
+    !!! warning
+        Do not overcommit the server!
+    ```
+=== "output"
+
+    !!! warning
+        Do not overcommit the server!
+
+Also very convenient can be [content tabs](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/):
+
+*code:*
+
+````md
+=== "R"
+    Generating a vector of integers:
+    ```r
+    a <- c(5,4,3,2,1)
+    ```
+=== "python"
+    Generating a list of integers:
+    ```python
+    a = [5,4,3,2,1]
+    ```
+````
+
+*output:*
+
+=== "R"
+    Generating a vector of integers:
+    ```r
+    a <- c(5,4,3,2,1)
+    ```
+=== "python"
+    Generating a list of integers:
+    ```python
+    a = [5,4,3,2,1]
+    ```
+
+Mkdocs material comes with a very wide range of [emoticons and icons](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/). Use the search field in the link to search for icons. Here's an example:
+
+=== "code"
+    ```md
+    Write an e-mail :material-send:, add a pdf :material-file-pdf: and wait :clock1:
+    ```
+=== "output"
+    Write an e-mail :material-send:, add a pdf :material-file-pdf: and wait :clock1:
+
+You can make a [button](https://squidfunk.github.io/mkdocs-material/reference/buttons/) like this:
+
+=== "code"
+    ```md
+    [Download the presentation](../assets/pdf/sequencing_technologies.pdf){: .md-button }
+    ```
+=== "output"
+    [Download the presentation](../assets/pdf/sequencing_technologies.pdf){: .md-button }
+
+You can also add an icon to a button:
+
+=== "code"
+    ```md
+    [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/sequencing_technologies.pdf){: .md-button }
+    ```
+=== "output"
+    [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/sequencing_technologies.pdf){: .md-button }
+
+Lastly, you can incorporate `html`. This can particularly be convenient if you want to control the size of images.
+
+=== "code"
+    ```html
+    <figure>
+      <img src="../assets/images/zoom_icons.png" width="300"/>
+    </figure>
+
+    <figure>
+      <img src="../assets/images/zoom_icons.png" width="100"/>
+    </figure>
+    ```
+=== "output"
+    <figure>
+      <img src="../assets/images/zoom_icons.png" width="300"/>
+    </figure>
+
+    <figure>
+      <img src="../assets/images/zoom_icons.png" width="100"/>
+    </figure>
+
+## BYO workshop
+
+If you have brought your own course material, now you can start with generating a page containing your own course material

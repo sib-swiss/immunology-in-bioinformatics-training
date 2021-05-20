@@ -1,4 +1,5 @@
 site_name: Github pages for teaching
+
 nav:
     - Home: index.md
     - Precourse preparations: precourse.md
