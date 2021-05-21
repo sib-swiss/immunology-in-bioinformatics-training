@@ -1,4 +1,12 @@
 
+## Material
+
+[:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/introduction_gh_pages.pdf){: .md-button }
+
+- [Mkdocs Website](https://www.mkdocs.org/)
+- [Mkdocs material website](https://squidfunk.github.io/mkdocs-material/)
+- [Course website template on github](https://github.com/sib-swiss/course_website_template)
+
 ## Forking and cloning the template
 
 Go to [https://github.com/sib-swiss/course_website_template](https://github.com/sib-swiss/course_website_template), and click on **Use this template**:
@@ -252,19 +260,19 @@ You can make a [button](https://squidfunk.github.io/mkdocs-material/reference/bu
 
 === "code"
     ```md
-    [Download the presentation](../assets/pdf/sequencing_technologies.pdf){: .md-button }
+    [Download the presentation](../assets/pdf/introduction_gh_pages.pdf){: .md-button }
     ```
 === "output"
-    [Download the presentation](../assets/pdf/sequencing_technologies.pdf){: .md-button }
+    [Download the presentation](../assets/pdf/introduction_gh_pages.pdf){: .md-button }
 
 You can also add an icon to a button:
 
 === "code"
     ```md
-    [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/sequencing_technologies.pdf){: .md-button }
+    [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/introduction_gh_pages.pdf){: .md-button }
     ```
 === "output"
-    [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/sequencing_technologies.pdf){: .md-button }
+    [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/introduction_gh_pages.pdf){: .md-button }
 
 Lastly, you can incorporate `html`. This can particularly be convenient if you want to control the size of images.
 
@@ -299,4 +307,4 @@ You can deploy your website as a github page by running the command:
 mkdocs gh-deploy
 ```
 
-It will become available at `[NAMESPACE].github.io/[REPONAME]`. This can take more than an hour if you are deploying for the first time. The next time you update your website, it will usually take less then a minute. 
+It will become available at `[NAMESPACE].github.io/[REPONAME]`. This can take more than an hour if you are deploying for the first time. The next time you update your website, it will usually take less then a minute.
