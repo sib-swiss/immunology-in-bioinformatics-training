@@ -1,4 +1,10 @@
 
+With this course you will be introduced in generating a course website by using `mkdocs` and github pages. To get you started you are asked to bring some **course material of your own** that you can use to start generating your own course website. This course material can be:
+
+- Exercises (in pdf, commented code or markdown)
+- Presentations (pdf or powerpoint)
+- Other text and images
+
 You will be working on your own computer during the course. Make sure you have an account on [github](https://github.com/). Before the start of the course please install:
 
 - [`git`](https://git-scm.com/downloads)

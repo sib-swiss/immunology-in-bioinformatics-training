@@ -293,10 +293,10 @@ If you have brought your own course material, now you can start with generating 
 
 ## Host the website at github.io
 
-You can host your website by running the command:
+You can deploy your website as a github page by running the command:
 
 ```sh
 mkdocs gh-deploy
 ```
 
-It will be available within a few minutes at `[NAMESPACE].github.io/[REPONAME]`
+It will become available at `[NAMESPACE].github.io/[REPONAME]`. This can take more than an hour if you are deploying for the first time. The next time you update your website, it will usually take less then a minute. 
