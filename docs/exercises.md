@@ -308,3 +308,32 @@ mkdocs gh-deploy
 ```
 
 It will become available at `[NAMESPACE].github.io/[REPONAME]`. This can take more than an hour if you are deploying for the first time. The next time you update your website, it will usually take less then a minute.
+
+## Pushing to a remote repository
+
+The website html is created in a directory called `site` inside your repository directory. This directory is used to locally host the website, but usually you don't want to push it to your master branch. Therefore add it to `.gitignore`:
+
+```sh
+echo "site" >> .gitignore
+```
+
+!!! note
+    Anything that is added to the file `.gitignore` is not added to the git repository. You have to add such files/directories only once. You can of course also open `.gitignore` in your favourite text editor and modify it in there.
+
+Now, you can add your changes to make a commit:
+
+```sh
+git add --all
+```
+
+And commit your changes to your local repository like this:
+
+```sh
+git commit -m 'short description'
+```
+
+And finally push it to the remote:
+
+```sh
+git push
+```
