@@ -43,7 +43,10 @@ mkdocs serve
 
 Now type `http://localhost:8000` in your favourite browser, and your website should be visible.
 
-Open the file `index.md` in your favourite text editor. Add some text to the page (e.g. `hello world!`) and save the file. See whether your changes are passed to the locally served website.
+!!! note
+    The website already contains content. Of course, it is up to you whether you want to keep it. In any way, you can use it as an example on how to use markdown. 
+
+Open the file `index.md` from the directory `docs` in your favourite text editor. Add some text to the page (e.g. `hello world!`) and save the file. See whether your changes are passed to the locally served website.
 
 !!! note "Stopping `mkdocs serve`"
     After you have finished working on your website you will have to stop the serving process. Otherwise, it will continue in the background and keep port 8000 (and CPU) occupied. Stop the serving process with ++ctrl+"C"++ .
