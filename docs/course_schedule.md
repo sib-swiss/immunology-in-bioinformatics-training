@@ -1,4 +1,8 @@
 
+!!! note
+    **Apart** from the **starting time** the time schedule is **indicative**. Because we can not plan a course by the minute, in practice the time points will deviate. 
+
+
 | start 	| end   	| topic   	|
 |-------	|-------	|---------	|
 | 9:15 	| 10:30 	| Introduction into the immune system 	|

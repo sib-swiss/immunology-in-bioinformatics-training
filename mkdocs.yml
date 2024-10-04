@@ -1,18 +1,24 @@
 site_name: Github pages for teaching
 
 nav:
-    - Home: index.md
-    - Precourse preparations: precourse.md
-    - Exercises: exercises.md
+  - Home: index.md
+  - Precourse preparations: precourse.md
+  - Course schedule: course_schedule.md
+  - Course material: course_material.md
 
 theme:
   name: material
   logo: assets/images/SIB_logo.svg
   favicon: assets/images/SIB_logo.svg
+  custom_dir: overrides
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - announce.dismiss
 
 # Repository
-repo_name: sib-swiss/gh-pages-training
-repo_url: https://github.com/sib-swiss/gh-pages-training
+repo_name: sib-swiss/immunology-in-bioinformatics-training/
+repo_url: https://sib-swiss.github.io/immunology-in-bioinformatics-training/
 
 markdown_extensions:
   - abbr
@@ -36,3 +42,6 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+  
+copyright: >
+  Copyright &copy; 2021-2022 SIB Swiss institute of Bioinformatics –
