@@ -30,4 +30,4 @@ mkdocs gh-deploy
 
 This will generate a webpage at:
 
-https://yourname.github.io/reponame
+https://yourname.github.io/immunology-in-bioinformatics-training
