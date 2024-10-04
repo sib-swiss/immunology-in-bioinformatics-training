@@ -8,8 +8,8 @@ nav:
 
 theme:
   name: material
-  logo: assets/images/SIB_logo.svg
-  favicon: assets/images/SIB_logo.svg
+  logo: assets/SIB_logo.svg
+  favicon: assets/SIB_logo.svg
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
