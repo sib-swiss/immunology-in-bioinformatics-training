@@ -1,4 +1,4 @@
-site_name: Github pages for teaching
+site_name: When immunology meets bioinformatics
 
 nav:
   - Home: index.md
@@ -18,7 +18,7 @@ theme:
 
 # Repository
 repo_name: sib-swiss/immunology-in-bioinformatics-training/
-repo_url: https://sib-swiss.github.io/immunology-in-bioinformatics-training/
+repo_url: https://github.com/sib-swiss/immunology-in-bioinformatics-training
 
 markdown_extensions:
   - abbr
