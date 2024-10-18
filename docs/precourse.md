@@ -12,10 +12,10 @@ Evaluate your R skills with the following [self-assessment](https://docs.google.
 ## Knowledge
 
 **Introduction to flow cytometry:**
-[:fontawesome-solid-file-pdf: Download the presentation](../scripts/1_Introduction-to-flow-cytometry_Melbourne_University.pdf){: .md-button }
+[:fontawesome-solid-file-pdf: Download the presentation](assets/pdf/1_Introduction-to-flow-cytometry%20by%20Melbourne%20University.pdf){: .md-button }
 
 **Guide with review Questions:**
-[:fontawesome-solid-file-pdf: Download the presentation](../scripts/2_Guide-with-REVIEW-Questions_BD_biosciences.pdf){: .md-button }
+[:fontawesome-solid-file-pdf: Download the presentation](assets/pdf/2_Guide-with-REVIEW-Questions%20by%20BD%20biosciences.pdf){: .md-button }
 
 **Basic-Principles of FACS:**
-[:fontawesome-solid-file-pdf: Download the presentation](../scripts/3_Basic-Principles_University_of_California.pdf){: .md-button }
+[:fontawesome-solid-file-pdf: Download the presentation](assets/pdf/3_Basic-Principles%20by%20University%20of%20California.pdf){: .md-button }
