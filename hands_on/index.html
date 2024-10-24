@@ -600,19 +600,20 @@ DN<span class="w"> </span>&lt;-<span class="w"> </span>data_log<span class="nv">
 <p>Let&rsquo;s do the same with CD69 (Antibody is called CD69.1) and CD103.</p>
 <details class="tip">
 <summary>Answer</summary>
-<p>```sh
-gg &lt;- ggplot(data_log[CD4,], aes(x = CD69.1, y = CD103)) +
-geom_bin2d(bins=200) + xlab(&ldquo;CD69.1&rdquo;) + ylab(&ldquo;CD103&rdquo;) +
-geom_vline(xintercept=2.6, linetype=&rdquo;dashed&rdquo;, color = &ldquo;red&rdquo;) +
-geom_hline(yintercept=3, linetype=&rdquo;dashed&rdquo;, color = &ldquo;red&rdquo;) +
-ggtitle(&ldquo;CD69 vs. CD103 &ldquo;)
-print(gg)</p>
-<p>CD69_CD103 &lt;- data_log$CD69.1 &gt; 2.6 &amp; data_log$CD103 &gt; 3
-CD69 &lt;- data_log$CD69.1 &gt; 2.6 &amp; data_log$CD103 &lt;= 3
-CD103 &lt;- data_log$CD69.1 &lt;= 2.6 &amp; data_log$CD103 &gt; 3
-DN2 &lt;- data_log$CD69.1 &lt;= 2.6 &amp; data_log$CD103 &lt;= 3</p>
+<div class="highlight"><pre><span></span><code>gg<span class="w"> </span>&lt;-<span class="w"> </span>ggplot<span class="o">(</span>data_log<span class="o">[</span>CD4,<span class="o">]</span>,<span class="w"> </span>aes<span class="o">(</span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>CD69.1,<span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>CD103<span class="o">))</span><span class="w"> </span>+
+geom_bin2d<span class="o">(</span><span class="nv">bins</span><span class="o">=</span><span class="m">200</span><span class="o">)</span><span class="w"> </span>+<span class="w"> </span>xlab<span class="o">(</span><span class="s2">&quot;CD69.1&quot;</span><span class="o">)</span><span class="w"> </span>+<span class="w"> </span>ylab<span class="o">(</span><span class="s2">&quot;CD103&quot;</span><span class="o">)</span><span class="w"> </span>+
+geom_vline<span class="o">(</span><span class="nv">xintercept</span><span class="o">=</span><span class="m">2</span>.6,<span class="w"> </span><span class="nv">linetype</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span>,<span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="o">)</span><span class="w"> </span>+
+geom_hline<span class="o">(</span><span class="nv">yintercept</span><span class="o">=</span><span class="m">3</span>,<span class="w"> </span><span class="nv">linetype</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span>,<span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="o">)</span><span class="w"> </span>+
+ggtitle<span class="o">(</span><span class="s2">&quot;CD69 vs. CD103 &quot;</span><span class="o">)</span>
+print<span class="o">(</span>gg<span class="o">)</span>
+
+
+CD69_CD103<span class="w"> </span>&lt;-<span class="w"> </span>data_log<span class="nv">$CD69</span>.1<span class="w"> </span>&gt;<span class="w"> </span><span class="m">2</span>.6<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>data_log<span class="nv">$CD103</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">3</span>
+CD69<span class="w"> </span>&lt;-<span class="w"> </span>data_log<span class="nv">$CD69</span>.1<span class="w"> </span>&gt;<span class="w"> </span><span class="m">2</span>.6<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>data_log<span class="nv">$CD103</span><span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span><span class="m">3</span>
+CD103<span class="w"> </span>&lt;-<span class="w"> </span>data_log<span class="nv">$CD69</span>.1<span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span><span class="m">2</span>.6<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>data_log<span class="nv">$CD103</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">3</span>
+DN2<span class="w"> </span>&lt;-<span class="w"> </span>data_log<span class="nv">$CD69</span>.1<span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span><span class="m">2</span>.6<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>data_log<span class="nv">$CD103</span><span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span><span class="m">3</span>
+</code></pre></div>
 </details>
-<p>```</p>
 <p>We are now ready to create a lable for our cells. They all belong in two categories. 
 The first can be CD4/CD8/DN/DP and second CD69/CD103/DN/DP</p>
 <details class="tip">
