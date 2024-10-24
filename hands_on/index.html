@@ -1,0 +1,742 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../course_material/">
+      
+      
+      
+      <link rel="icon" href="../assets/SIB_logo.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "LearningResource",
+    "@id": "https://sib-swiss.github.io/NGS-variants-training",
+    "http://purl.org/dc/terms/conformsTo": {
+        "@type": "CreativeWork",
+        "@id": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE"
+    },
+    "description": "Course on detecting variants from next generation sequencing data",
+    "keywords": "NGS, variant, SNP, INDEL, sequencing, SNV, gatk",
+    "name": "NGS - variant analysis",
+    "about": [
+        {
+            "@type": "DefinedTerm",
+            "@id": "http://edamontology.org/topic_3168",
+            "inDefinedTermSet": "http://edamontology.org",
+            "termCode": "topic_3168",
+            "name": "Sequencing"
+        },
+        {
+            "@type": "DefinedTerm",
+            "@id": "http://edamontology.org/topic_3227",
+            "inDefinedTermSet": "http://edamontology.org",
+            "termCode": "topic_3227",
+            "name": "Variant calling"
+        }
+    ],
+    "abstract": "The detection of genetic variation is of major interest in various disciplines spanning from ecology and evolution research to inherited disease discovery and precision oncology. Next generation sequencing (NGS) methods are very powerful for the detection of genomic variants. Thanks to its throughput and cost-efficiency it enables the detection of a large number of variants in a large number of samples. In this two-day course we will cover the steps from read alignment to variant calling and annotation. We will mainly focus on the detection of germline mutations by following the GATK best practices. ",
+    "audience": "Biologists working with NGS data",
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Geert van Geest",
+            "email": "geert.vangeest@sib.swiss"
+        },
+        {
+            "@type": "Person",
+            "name": "Patricia Palagi"
+        },
+        {
+            "@type": "Organization",
+            "name": "SIB Swiss Institute of Bioinformatics"
+        }
+    ],
+    "identifier": "https://doi.org/10.5281/zenodo.6457818",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "teaches": [
+        "Understand important aspects of NGS and read alignment for variant analysis",
+        "Perform a read alignment ready for variant analysis",
+        "Perform variant calling according to GATK best practices",
+        "Perform a variant annotation"
+    ]
+}
+</script>
+
+    
+      
+        <title>Hands-on - When immunology meets bioinformatics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#preparation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+              </button>
+            
+            
+  <b>Issues, questions or feedback? &#128591; &#128640; </b> Use the "Questions and Answers" section at the bottom &#128071; of every page
+
+          </div>
+          
+            <script>var content,el=document.querySelector("[data-md-component=announce]");el&&(content=el.querySelector(".md-typeset"),__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0))</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="When immunology meets bioinformatics" class="md-header__button md-logo" aria-label="When immunology meets bioinformatics" data-md-component="logo">
+      
+  <img src="../assets/SIB_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            When immunology meets bioinformatics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hands-on
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sib-swiss/immunology-in-bioinformatics-training" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/immunology-in-bioinformatics-training/
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="When immunology meets bioinformatics" class="md-nav__button md-logo" aria-label="When immunology meets bioinformatics" data-md-component="logo">
+      
+  <img src="../assets/SIB_logo.svg" alt="logo">
+
+    </a>
+    When immunology meets bioinformatics
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sib-swiss/immunology-in-bioinformatics-training" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/immunology-in-bioinformatics-training/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../precourse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Precourse preparations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course_schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course_material/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course material
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Hands-on
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Hands-on
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-get-started" class="md-nav__link">
+    Let's get started
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-get-started" class="md-nav__link">
+    Let's get started
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+  
+  
+
+
+  <h1>Hands-on</h1>
+
+<h2 id="preparation">Preparation</h2>
+<p>Download the required files (found on the shared folder) to your computer in a project/course directory. </p>
+<h2 id="exercise">Exercise</h2>
+<p>We already ran cellranger multi to save some time</p>
+<p><div class="highlight"><pre><span></span><code>cellranger<span class="w"> </span>multi<span class="w"> </span>--id<span class="o">=</span><span class="s1">&#39;SAMPLE&#39;</span><span class="w"> </span>--csv<span class="o">=</span><span class="s1">&#39;ProjectDir&#39;</span>/configs/<span class="s1">&#39;SAMPLE&#39;</span>.csv
+</code></pre></div>
+The config file for each sample looks like this:</p>
+<p><div class="highlight"><pre><span></span><code><span class="o">[</span>gene-expression<span class="o">]</span>
+reference,/path_to_reference/refdata-cellranger-GRCh38-3.0.0
+expect-cells,10000
+
+<span class="o">[</span>feature<span class="o">]</span>
+reference,/path_to_feature_file/feature_ref.csv
+
+<span class="o">[</span>libraries<span class="o">]</span>
+fastq_id,fastqs,lanes,feature_types,subsample_rate
+<span class="s1">&#39;SAMPLE&#39;</span>_SP,/path_to_raw_data,,Antibody<span class="w"> </span>Capture,
+<span class="s1">&#39;SAMPLE&#39;</span>_GX,/path_to_raw_data,,Gene<span class="w"> </span>Expression,
+</code></pre></div>
+feature_ref.csv file is set up in this manner:</p>
+<div class="highlight"><pre><span></span><code>id,<span class="w"> </span>name,read,pattern,sequence,feature_type
+CD69,CD69,R2,5PNNNNNNNNNN<span class="o">(</span>BC<span class="o">)</span>NNNNNNNNN,GTCTCTTGGCTTAAA,Antibody<span class="w"> </span>Capture
+CD8,CD8,R2,5PNNNNNNNNNN<span class="o">(</span>BC<span class="o">)</span>NNNNNNNNN,GCGCAACTTGATGAT,Antibody<span class="w"> </span>Capture
+CD4,CD4,R2,5PNNNNNNNNNN<span class="o">(</span>BC<span class="o">)</span>NNNNNNNNN,TGTTCCCGCTCAACT,Antibody<span class="w"> </span>Capture
+CD103,CD103,R2,5PNNNNNNNNNN<span class="o">(</span>BC<span class="o">)</span>NNNNNNNNN,GACCTCATTGTGAAT,Antibody<span class="w"> </span>Capture
+</code></pre></div>
+<p>Install the required packages &ldquo;Seurat&rdquo; and &ldquo;ggplot2&rdquo;</p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>library<span class="o">(</span>Seurat<span class="o">)</span>
+library<span class="o">(</span>ggplot2<span class="o">)</span>
+</code></pre></div>
+</details>
+<h2 id="lets-get-started">Let&rsquo;s get started</h2>
+<p>Set an project directory as working directory and a create a folder for the results</p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>project_dir<span class="w"> </span>&lt;-<span class="w"> </span><span class="s2">&quot;Documents/immunology-in-bioinformatics-training/hands_on/&quot;</span>
+setwd<span class="o">(</span>project_dir<span class="o">)</span>
+out_folder<span class="w"> </span>&lt;-<span class="w"> </span>paste0<span class="o">(</span>project_dir,<span class="s2">&quot;results/&quot;</span><span class="o">)</span>
+dir.create<span class="o">(</span>out_folder<span class="o">)</span>
+</code></pre></div>
+</details>
+<p>Run &lsquo;Read10X&rsquo; in the folder containing the cellranger output</p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>i.data<span class="w"> </span>&lt;-<span class="w"> </span>Read10X<span class="o">(</span><span class="s2">&quot;filtered_feature_bc_matrix/&quot;</span><span class="o">)</span>
+</code></pre></div>
+</details>
+<p>Now we have a list with two elements. We split this list now into two elements. 
+First we will create a seurat object containing the gene expression date using &lsquo;CreateSeuratObject&rsquo;. 
+And second we will turn the CITE-seq data into a matrix using &lsquo;as.matrix&rsquo;. 
+Please save the resulting objects as &lsquo;.rds&rsquo; files into the results directory.</p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>sc_data<span class="w"> </span>&lt;-<span class="w"> </span>CreateSeuratObject<span class="o">(</span><span class="nv">counts</span><span class="o">=</span>i.data$<span class="sb">`</span>Gene<span class="w"> </span>Expression<span class="sb">`</span>,<span class="w"> </span>min.cells<span class="o">=</span><span class="m">3</span>,<span class="w"> </span>min.features<span class="o">=</span><span class="m">200</span><span class="o">)</span>
+saveRDS<span class="o">(</span>sc_data,<span class="w"> </span><span class="nv">file</span><span class="o">=</span>paste0<span class="o">(</span>out_folder,<span class="w"> </span><span class="s2">&quot;seurat_gene_expression.rds&quot;</span><span class="o">))</span>
+
+CITEseq_data<span class="w"> </span>&lt;-<span class="w"> </span>as.matrix<span class="o">(</span>i.data$<span class="sb">`</span>Antibody<span class="w"> </span>Capture<span class="sb">`</span><span class="o">)</span>
+saveRDS<span class="o">(</span>CITEseq_data,<span class="w"> </span><span class="nv">file</span><span class="o">=</span>paste0<span class="o">(</span>out_folder,<span class="w"> </span><span class="s2">&quot;antibody_capture_matrix.rds&quot;</span><span class="o">))</span>
+</code></pre></div>
+</details>
+<p>We can look at the CITE-seq data with summary(t(CITEseq_data)). To get a normal distribution we will 
+take the log of the data. </p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>data_log<span class="w"> </span>&lt;-<span class="w"> </span>as.data.frame<span class="o">(</span>apply<span class="o">(</span>t<span class="o">(</span>CITEseq_data<span class="o">)</span>,c<span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>,log<span class="o">))</span>
+</code></pre></div>
+</details>
+<p>We can plot the log-data using ggplot. Let&rsquo;s start with CD4 (The antibody is calles &lsquo;CD4.1&rsquo;) vs CD8.</p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>gg<span class="w"> </span>&lt;-<span class="w"> </span>ggplot<span class="o">(</span>data_log,<span class="w"> </span>aes<span class="o">(</span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>CD4.1,<span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>CD8<span class="o">))</span><span class="w"> </span>+
+geom_bin2d<span class="o">(</span><span class="nv">bins</span><span class="o">=</span><span class="m">200</span><span class="o">)</span><span class="w"> </span>+<span class="w"> </span>xlab<span class="o">(</span><span class="s2">&quot;CD4&quot;</span><span class="o">)</span><span class="w"> </span>+<span class="w"> </span>ylab<span class="o">(</span><span class="s2">&quot;CD8&quot;</span><span class="o">)</span><span class="w"> </span>+
+ggtitle<span class="o">(</span><span class="s2">&quot;CD4 vs. CD8 &quot;</span><span class="o">)</span>
+print<span class="o">(</span>gg<span class="o">)</span>
+</code></pre></div>
+</details>
+<p>There is a separation of CD4+ and CD4- cells at around 3.2. CD8 is a bit more complicated. 
+CD4+ cells look like they bound some CD8 antibody. Le&rsquo;t add some lines to the plot to split the cell populations.</p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>gg<span class="w"> </span>+<span class="w"> </span>
+geom_vline<span class="o">(</span><span class="nv">xintercept</span><span class="o">=</span><span class="m">3</span>.2,<span class="w"> </span><span class="nv">linetype</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span>,<span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="o">)</span><span class="w"> </span>+
+geom_abline<span class="o">(</span><span class="nv">intercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">slope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="nv">linetype</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span>,<span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="o">)</span><span class="w"> </span>+
+geom_hline<span class="o">(</span><span class="nv">yintercept</span><span class="o">=</span><span class="m">3</span>.2,<span class="w"> </span><span class="nv">linetype</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span>,<span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="o">)</span>
+</code></pre></div>
+</details>
+<p>We can now split our cell into CD4 cells, CD8 cells, double-neg (DN) and douple-pos (DP) cells</p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>CD4<span class="w"> </span>&lt;-<span class="w"> </span>data_log<span class="nv">$CD4</span>.1<span class="w"> </span>&gt;<span class="w"> </span><span class="m">3</span>.2<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>data_log<span class="nv">$CD8</span><span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span>data_log<span class="nv">$CD4</span>.1
+CD8<span class="w"> </span>&lt;-<span class="w"> </span>data_log<span class="nv">$CD4</span>.1<span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span><span class="m">3</span>.2<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>data_log<span class="nv">$CD8</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">3</span>.2
+DP<span class="w"> </span>&lt;-<span class="w"> </span>data_log<span class="nv">$CD4</span>.1<span class="w"> </span>&gt;<span class="w"> </span><span class="m">3</span>.2<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>data_log<span class="nv">$CD8</span><span class="w"> </span>&gt;<span class="w"> </span>data_log<span class="nv">$CD4</span>.1
+DN<span class="w"> </span>&lt;-<span class="w"> </span>data_log<span class="nv">$CD4</span>.1<span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span><span class="m">3</span>.2<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>data_log<span class="nv">$CD8</span><span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span><span class="m">3</span>.2
+</code></pre></div>
+</details>
+<p>Let&rsquo;s do the same with CD69 (Antibody is called CD69.1) and CD103.</p>
+<details class="tip">
+<summary>Answer</summary>
+<p>```sh
+gg &lt;- ggplot(data_log[CD4,], aes(x = CD69.1, y = CD103)) +
+geom_bin2d(bins=200) + xlab(&ldquo;CD69.1&rdquo;) + ylab(&ldquo;CD103&rdquo;) +
+geom_vline(xintercept=2.6, linetype=&rdquo;dashed&rdquo;, color = &ldquo;red&rdquo;) +
+geom_hline(yintercept=3, linetype=&rdquo;dashed&rdquo;, color = &ldquo;red&rdquo;) +
+ggtitle(&ldquo;CD69 vs. CD103 &ldquo;)
+print(gg)</p>
+<p>CD69_CD103 &lt;- data_log$CD69.1 &gt; 2.6 &amp; data_log$CD103 &gt; 3
+CD69 &lt;- data_log$CD69.1 &gt; 2.6 &amp; data_log$CD103 &lt;= 3
+CD103 &lt;- data_log$CD69.1 &lt;= 2.6 &amp; data_log$CD103 &gt; 3
+DN2 &lt;- data_log$CD69.1 &lt;= 2.6 &amp; data_log$CD103 &lt;= 3</p>
+</details>
+<p>```</p>
+<p>We are now ready to create a lable for our cells. They all belong in two categories. 
+The first can be CD4/CD8/DN/DP and second CD69/CD103/DN/DP</p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>CITE_label<span class="w"> </span>&lt;-<span class="w"> </span>rep<span class="o">(</span>NA,times<span class="o">=</span><span class="w"> </span>nrow<span class="o">(</span>data_log<span class="o">))</span>
+CITE_label<span class="o">[</span>CD4<span class="o">]</span><span class="w"> </span>&lt;-<span class="w"> </span><span class="s2">&quot;CD4&quot;</span>
+CITE_label<span class="o">[</span>CD8<span class="o">]</span><span class="w"> </span>&lt;-<span class="w"> </span><span class="s2">&quot;CD8&quot;</span>
+CITE_label<span class="o">[</span>DP<span class="o">]</span><span class="w"> </span>&lt;-<span class="w"> </span><span class="s2">&quot;CD4_CD8&quot;</span>
+CITE_label<span class="o">[</span>DN<span class="o">]</span><span class="w"> </span>&lt;-<span class="w"> </span><span class="s2">&quot;DN&quot;</span>
+
+CITE_label<span class="o">[</span>CD69_CD103<span class="o">]</span><span class="w"> </span>&lt;-<span class="w"> </span>paste0<span class="o">(</span>CITE_label<span class="o">[</span>CD69_CD103<span class="o">]</span>,<span class="s2">&quot;_CD69_CD103&quot;</span><span class="o">)</span>
+CITE_label<span class="o">[</span>CD69<span class="o">]</span><span class="w"> </span>&lt;-<span class="w"> </span>paste0<span class="o">(</span>CITE_label<span class="o">[</span>CD69<span class="o">]</span>,<span class="s2">&quot;_CD69&quot;</span><span class="o">)</span>
+CITE_label<span class="o">[</span>CD103<span class="o">]</span><span class="w"> </span>&lt;-<span class="w"> </span>paste0<span class="o">(</span>CITE_label<span class="o">[</span>CD103<span class="o">]</span>,<span class="s2">&quot;_CD103&quot;</span><span class="o">)</span>
+CITE_label<span class="o">[</span>DN2<span class="o">]</span><span class="w"> </span>&lt;-<span class="w"> </span>paste0<span class="o">(</span>CITE_label<span class="o">[</span>DN2<span class="o">]</span>,<span class="s2">&quot;_DN&quot;</span><span class="o">)</span>
+</code></pre></div>
+</details>
+<p>We can look at the results with table. Furthermore we can add this labels to the &ldquo;raw&rdquo; 
+CITE_Abs counts to add everything as metadata to our seurat object containing the expression data.</p>
+<details class="tip">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>table<span class="o">(</span>CITE_label<span class="o">)</span>
+
+final_CITE<span class="w"> </span>&lt;-<span class="w"> </span>cbind<span class="o">(</span>t<span class="o">(</span>CITEseq_data<span class="o">)</span>,CITE_label<span class="o">)</span>
+
+seu<span class="w"> </span>&lt;-<span class="w"> </span>AddMetaData<span class="o">(</span>sc_data,<span class="w"> </span>final_CITE<span class="o">)</span>
+</code></pre></div>
+</details>
+
+
+
+
+
+                
+
+  <!-- Giscus -->
+  <h2>Questions & Answers</h2>
+
+    <script src="https://giscus.app/client.js"
+            data-repo="sib-swiss/NGS-variants-training"
+            data-repo-id="MDEwOlJlcG9zaXRvcnkzMTEzMTc0MDI="
+            data-category="Q&A"
+            data-category-id="DIC_kwDOEo5Tms4CQ1hn"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+
+
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021-2022 SIB Swiss institute of Bioinformatics –
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
