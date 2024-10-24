@@ -2,14 +2,16 @@
 
 ## Systems immunology – embracing the complexity of the immune system
 
+Participents of the course can find the slides in the shared folder. 
+
 ## Flow cytometry in Biomedical Research
 
-## Methods commonly used in immunology and how to analyze the data
+Participents of the course can find the slides in the shared folder. 
 
-### RNA sequencing
-### Spacial sequencing
-### RCR/BCR analysis
-
-## Hands on: Totalseq /Citeseq
+## Methods commonly used in immunology
 
 ## Current research topics, methods, and problems
+
+## Veterinary and Comparative Immunology
+
+Participents of the course can find the slides in the shared folder. 

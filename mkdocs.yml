@@ -5,6 +5,7 @@ nav:
   - Precourse preparations: precourse.md
   - Course schedule: course_schedule.md
   - Course material: course_material.md
+  - Hands-on: hands_on.md
 
 theme:
   name: material
@@ -13,6 +14,7 @@ theme:
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
+    tip: fontawesome/solid/bullhorn
   features:
     - announce.dismiss
 
