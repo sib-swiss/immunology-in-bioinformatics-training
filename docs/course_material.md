@@ -1,6 +1,4 @@
 ## Introduction into the immune system
-
-**Introduction to flow cytometry:**
 [:fontawesome-solid-file-pdf: Download the presentation](scripts/Introduction_into_the_immune_system_SIB.pdf){: .md-button }
 
 ## Systems immunology – embracing the complexity of the immune system

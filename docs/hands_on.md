@@ -1,5 +1,8 @@
 ## Preparation
 
+**Introduction to CITE-Seq:**
+[:fontawesome-solid-file-pdf: Download the presentation](scripts/Introduction_to_CITESeq.pdf){: .md-button }
+
 Download the required files (found on the shared folder) to your computer in a project/course directory. 
 
 ## Exercise
