@@ -150,8 +150,7 @@ Let's do the same with CD69 (Antibody is called CD69.1) and CD103.
     CD69 <- data_log$CD69.1 > 2.6 & data_log$CD103 <= 3
     CD103 <- data_log$CD69.1 <= 2.6 & data_log$CD103 > 3
     DN2 <- data_log$CD69.1 <= 2.6 & data_log$CD103 <= 3
-
-```
+    ```
 
 We are now ready to create a lable for our cells. They all belong in two categories. 
 The first can be CD4/CD8/DN/DP and second CD69/CD103/DN/DP
