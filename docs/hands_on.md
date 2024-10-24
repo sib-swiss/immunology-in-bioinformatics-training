@@ -185,8 +185,8 @@ CITE_Abs counts to add everything as metadata to our seurat object containing th
     ```
 
 If you are done with the Hands-on part. Here are a few more excersises you can do.
-1. Compare the gene expression of CD4 to the CITE-Seq results for CD4
-2. Subset your seurat object so it only contains CD4+ T cells. And subcuster these cells using the expression data
+1.  Compare the gene expression of CD4 to the CITE-Seq results for CD4
+2.  Subset your seurat object so it only contains CD4+ T cells. And subcuster these cells using the expression data
 
 
 
