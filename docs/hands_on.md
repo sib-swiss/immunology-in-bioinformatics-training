@@ -53,7 +53,7 @@ Set an project directory as working directory and a create a folder for the resu
 
 ??? Tip "Answer"
     ```sh
-    project_dir <- "Documents/immunology-in-bioinformatics-training/hands_on/"
+    project_dir <- "~/Documents/immunology-in-bioinformatics-training/hands_on/"
     setwd(project_dir)
     out_folder <- paste0(project_dir,"results/")
     dir.create(out_folder)
